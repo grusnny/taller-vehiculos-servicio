@@ -1,8 +1,5 @@
 package com.tallerdevehiculos.vehiculos.entity;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
 
 import lombok.AllArgsConstructor;
@@ -11,25 +8,21 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@DynamoDBTable(tableName = "vehicle")
+
+
 public class Vehicle implements Serializable{
 
-    @DynamoDBHashKey(attributeName = "licensePlate")
     private String licensePlate;
-    @DynamoDBAttribute(attributeName = "owner")
     private Owner owner;
-    @DynamoDBAttribute
+
     private String type;
-    @DynamoDBAttribute
+
     private String mark;
-    @DynamoDBAttribute
+
     private String modelNumber;
-    @DynamoDBAttribute
+
     private String color;
-    @DynamoDBAttribute
+
     private String admissionDate;
 
     public String getLicensePlate() {

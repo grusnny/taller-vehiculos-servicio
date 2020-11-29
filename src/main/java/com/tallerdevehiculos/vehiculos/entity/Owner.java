@@ -1,26 +1,25 @@
 package com.tallerdevehiculos.vehiculos.entity;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
+
 
 import java.io.Serializable;
 
-@DynamoDBDocument
+
 public class Owner implements Serializable {
 
-    @DynamoDBAttribute
+
     private String uId;
-    @DynamoDBAttribute
+
     private int id;
-    @DynamoDBAttribute
+
     private String name;
-    @DynamoDBAttribute
+
     private String lastName;
-    @DynamoDBAttribute
+
     private int telephone;
-    @DynamoDBAttribute
+
     private String email;
-    @DynamoDBAttribute
+
     private String creationDate;
 
     public String getuId() {

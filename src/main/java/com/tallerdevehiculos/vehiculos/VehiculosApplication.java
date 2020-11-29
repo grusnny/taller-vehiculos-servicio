@@ -1,12 +1,13 @@
 package com.tallerdevehiculos.vehiculos;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
+
 import com.tallerdevehiculos.vehiculos.entity.Vehicle;
 import com.tallerdevehiculos.vehiculos.repository.VehicleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin(origins = {"http://localhost:3000", "http://tallerdevehiculos.s3-website-us-east-1.amazonaws.com/"})
 @SpringBootApplication
@@ -14,9 +15,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/vehicles")
 public class VehiculosApplication {
 
-    @Autowired
 
-    private VehicleRepository repository;
+
+    private VehicleRepository repository=VehicleRepository.getInstance();
 
     @GetMapping("/{licensePlate}")
     public Vehicle GetVehicle(@PathVariable String licensePlate){
@@ -35,7 +36,7 @@ public class VehiculosApplication {
         return repository.deleteVehicle(vehicle);
     }
     @GetMapping
-    public PaginatedScanList<Vehicle> GetAllVehicles(){
+    public List<Vehicle> GetAllVehicles(){
         return repository.findAllVehicles();
     }
 
